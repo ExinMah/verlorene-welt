@@ -2,38 +2,35 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class InteractionPromptUI : MonoBehaviour
 {
-    private Camera mainCam;
-    [SerializeField] private GameObject uiPanel;
-    [FormerlySerializedAs("_promptText")] [SerializeField] private TextMeshProUGUI promptText;
+    public static bool textOn = false;
+    public static string promptTextMessage;
+    private float timer = 0.0f;
+    private TextMeshProUGUI promptText;
 
     private void Start()
     {
-        mainCam = Camera.main;
-        uiPanel.SetActive(false);
+        promptText = GetComponent<TextMeshProUGUI>();
+        textOn = false;
+        promptText.text = "";
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        var rotation = mainCam.transform.rotation;
-        transform.LookAt(transform.position + rotation * Vector3.forward, rotation * Vector3.up);
-    }
-
-    public bool isDisplayed = false;
-    
-    public void SetUp(string _promptText)
-    {
-        this.promptText.text = _promptText;
-        uiPanel.SetActive(true);
-        isDisplayed = true;
-    }
-
-    public void CloseUI()
-    {
-        isDisplayed = false;
+        if (textOn)
+        {
+            promptText.enabled = true;
+            promptText.text = promptTextMessage;
+        }
+        else
+        {
+            textOn = false;
+            promptText.enabled = false;
+        }
     }
 }

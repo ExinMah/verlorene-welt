@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4410843128935598}
   - component: {fileID: 33258934878079496}
   - component: {fileID: 23477471634162096}
+  - component: {fileID: 3040635839550841284}
   m_Layer: 0
   m_Name: BEAR
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3040635839550841284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258646480729192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4691862, y: 1.8888121, z: 1.2306089}
+  m_Center: {x: -0.0000019920665, y: 0.4487624, z: 0.15734582}

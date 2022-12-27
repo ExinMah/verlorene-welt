@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LockedDoor
   - UnlockedDoor
+  - PickupObjects
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - First Floor
   - Second Floor
   - InteractableObjects
-  - 
-  - 
-  - 
+  - HighlightedObjects
+  - Player
+  - Obstacles
   - 
   - 
   - 
