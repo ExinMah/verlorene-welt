@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class LockControl : MonoBehaviour
 {
+    public AudioClip unlockSound;
     private int[] result, correctCombination;
     private bool isOpened;
+    private float shackleUnlock = 0.03f;
     private void Start()
     {
-        result = new int[]{0,0,0,0};
-        correctCombination = new int[] {6,7,8,4};
+        result = new int[] { 0, 0, 0, 0 };
+        correctCombination = new int[] { 1, 2, 3, 4 };
         isOpened = false;
         Rotate.Rotated += CheckResults;
     }
@@ -38,8 +40,13 @@ public class LockControl : MonoBehaviour
         if (result[0] == correctCombination[0] && result[1] == correctCombination[1]
             && result[2] == correctCombination[2] && result[3] == correctCombination[3] && !isOpened)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = unlockSound;
+            audio.Play();
+
+            transform.position = new Vector3(transform.position.x, transform.position.y + shackleUnlock, transform.position.z);
             isOpened = true;
+            Debug.Log("Opened!");
         }
     }
 

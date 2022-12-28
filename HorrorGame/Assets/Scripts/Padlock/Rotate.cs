@@ -1,10 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 public class Rotate : MonoBehaviour
 {
+
+    public AudioClip rotateSound;
     public static event Action<string, int> Rotated = delegate { };
 
     private bool coroutineAllowed;
@@ -21,9 +23,13 @@ public class Rotate : MonoBehaviour
     {
         if (coroutineAllowed)
         {
+
+            Debug.Log("rotate!");
             StartCoroutine("RotateWheel");
         }
     }
+
+
 
     private IEnumerator RotateWheel()
     {
@@ -31,8 +37,10 @@ public class Rotate : MonoBehaviour
 
         for (int i = 0; i <= 11; i++)
         {
+            RotateSound();
             transform.Rotate(0f, 3f, 0f);
             yield return new WaitForSeconds(0.01f);
+
         }
 
         coroutineAllowed = true;
@@ -46,4 +54,12 @@ public class Rotate : MonoBehaviour
 
         Rotated(name, numberShown);
     }
+
+    void RotateSound()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = rotateSound;
+        audio.Play();
+    }
 }
+

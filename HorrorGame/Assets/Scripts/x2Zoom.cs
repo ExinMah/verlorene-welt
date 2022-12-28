@@ -20,6 +20,7 @@ public class x2Zoom : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
+            Debug.Log("Zoom in!");
             cam.fieldOfView = (defaultFov / 2);
         }
         else
