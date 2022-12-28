@@ -14,6 +14,7 @@ public class ReadNote : MonoBehaviour
     public GameObject pickUpText;
     public GameObject closeNoteText;
     public AudioClip pickUpSound;
+    public AudioClip putDownSound;
 
     public bool isCollide;
 
@@ -51,12 +52,15 @@ public class ReadNote : MonoBehaviour
         {
             Debug.Log("Pressed F");
            // mouseLook.enabled = false;
+
             noteUI.SetActive(true);
+            Debug.Log("note displayed");
 
             closeNoteText.SetActive(true);
-            Debug.Log("note displayed");
             pickUpText.SetActive(false);
             playPickUpSound();
+
+
             //player.GetComponent<FirstPersonController>();
             //Debug.Log("freeze walk");
 
@@ -66,10 +70,13 @@ public class ReadNote : MonoBehaviour
         }
         if (Input.GetButtonDown("NotInteract") && noteUI == true)
         {
-            Debug.Log("disable note");
             //mouseLook.enabled = true;
+
             noteUI.SetActive(false);
+            Debug.Log("disable note");
             closeNoteText.SetActive(false);
+            playPutDownSound();
+
         }
 
     }
@@ -84,6 +91,13 @@ public class ReadNote : MonoBehaviour
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = pickUpSound;
+        audio.Play();
+    }
+
+    void playPutDownSound()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = putDownSound;
         audio.Play();
     }
 }
