@@ -101,7 +101,7 @@ public class ReadNote : MonoBehaviour
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = putDownSound;
-        audio.volume = 0.3f;
+        audio.volume = 0.1f;
         audio.Play();
     }
 }
