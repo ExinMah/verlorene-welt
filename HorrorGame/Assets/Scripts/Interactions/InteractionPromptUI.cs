@@ -29,7 +29,6 @@ public class InteractionPromptUI : MonoBehaviour
         }
         else
         {
-            textOn = false;
             promptText.enabled = false;
         }
     }

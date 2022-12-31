@@ -1,5 +1,5 @@
 {
-    "name": "HumaninputActionsMap",
+    "name": "HumanInputActionsMap",
     "maps": [
         {
             "name": "Player",
@@ -27,6 +27,15 @@
                     "name": "Run",
                     "type": "Button",
                     "id": "f97c8e97-c303-4221-a59f-b0c6c972b542",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "e206c898-90be-4036-9f99-7935bd0ebd38",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -108,6 +117,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa4c9ecb-4564-4559-9331-e37c4dcb7673",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

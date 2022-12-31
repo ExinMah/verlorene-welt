@@ -23,8 +23,8 @@ public class Interactor : MonoBehaviour
     private string highlightedObjMaskName = "HighlightedObjects";
 
     private DoorInteraction _doorInteraction;
-    private float timer = 0.0f;
-
+    private float timer;
+    
     private void Awake()
     {
         _doorInteraction = gameObject.AddComponent<DoorInteraction>();
@@ -48,17 +48,15 @@ public class Interactor : MonoBehaviour
                 currentTarget.layer = highlightedObjMask;
 
                 _doorInteraction.OpenDoor(hitInfo);
+                _doorInteraction.CloseDoor(hitInfo);
             }
         }
         else if (currentTarget != null)
         {
             currentTarget.layer = interactableObjMask;
             currentTarget = null;
-
-            timer += Time.deltaTime;
-            _doorInteraction.CloseDoor(timer);
-            if (timer > 3.0f)
-                timer = 0.0f;
+            _doorInteraction.SetCurrentDoor(null);
+            InteractionPromptUI.textOn = false;
         }
     }
 }

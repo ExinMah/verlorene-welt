@@ -8,6 +8,7 @@ TagManager:
   - UnlockedDoor
   - PickupObjects
   - Collide
+  - InspectObjects
   layers:
   - Default
   - TransparentFX

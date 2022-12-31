@@ -2,21 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(AudioSource))]
 
 public class DoorInteraction : MonoBehaviour
 {
-    [SerializeField] private string unlockedPromptText = "Press [F] to open door";
+    [SerializeField] private string openPromptText = "Press [F] to open door";
+    [SerializeField] private string closePromptText = "Press [F] to close door";
     [SerializeField] private string lockedPromptText = "The door seems to be locked";
+    
     private string boolText = "isDoorOpen";
     private string unlockedDoorTag = "UnlockedDoor";
     private string lockDoorTag = "LockedDoor";
     
     private bool isDoorOpen = false;
+    private bool openDoor = false;
+    private bool closeDoor = false;
     private GameObject currentDoor;
 
-    [SerializeField] private float doorOpenTime = 3.0f;
     public AudioClip doorOpenSound;
     public AudioClip doorCloseSound;
 
@@ -25,31 +29,50 @@ public class DoorInteraction : MonoBehaviour
     {
     }
 
+    public void SetCurrentDoor(GameObject obj)
+    {
+        currentDoor = obj;
+    }
+    
+    private void Update()
+    {
+        if (Keyboard.current[Key.F].wasPressedThisFrame)
+        {
+            Debug.Log("F key was pressed");
+
+            if (!isDoorOpen)
+            {
+                Door(doorOpenSound, true, true, currentDoor);
+            }
+            else
+            {
+                Door(doorCloseSound, false, false, currentDoor);
+            }
+        }
+    }
+
     public void OpenDoor(RaycastHit hit)
     {
-        if (hit.collider.gameObject.tag == unlockedDoorTag && isDoorOpen == false)
+        if (hit.collider.gameObject.tag == unlockedDoorTag && !isDoorOpen)
         {
             currentDoor = hit.collider.gameObject;
-            InteractionPromptUI.promptTextMessage = unlockedPromptText;
+            InteractionPromptUI.promptTextMessage = openPromptText;
             InteractionPromptUI.textOn = true;
-            Door(doorOpenSound, true, true, currentDoor);
         }
-        else if (hit.collider.gameObject.tag == lockDoorTag && isDoorOpen == false)
+        else if (hit.collider.gameObject.tag == lockDoorTag && !isDoorOpen)
         {
             InteractionPromptUI.promptTextMessage = lockedPromptText;
             InteractionPromptUI.textOn = true;
         }
     }
 
-    public void CloseDoor(float doorTimer)
+    public void CloseDoor(RaycastHit hit)
     {
-        InteractionPromptUI.textOn = false;
-        InteractionPromptUI.promptTextMessage = "";
-
-        if (isDoorOpen && doorTimer > doorOpenTime)
+        if (isDoorOpen)
         {
-            Door(doorCloseSound, false, false, currentDoor);
-            currentDoor = null;
+            currentDoor = hit.collider.gameObject;
+            InteractionPromptUI.textOn = true;
+            InteractionPromptUI.promptTextMessage = closePromptText;
         }
     }
 
