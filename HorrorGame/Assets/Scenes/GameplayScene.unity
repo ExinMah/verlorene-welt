@@ -23348,6 +23348,7 @@ GameObject:
   - component: {fileID: 1428879888}
   - component: {fileID: 1428879887}
   - component: {fileID: 1428879886}
+  - component: {fileID: 1428879890}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -23469,6 +23470,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1428879890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428879884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea24a1aaa7690b4eafe00b340c27521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1430261326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4620f3c93dca8c94c9124d8ba443f43e,
@@ -25234,12 +25247,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 8e28fcaf9a0c5f34fa9166812f114290,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.015
+      value: 10.87
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8e28fcaf9a0c5f34fa9166812f114290,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.47824
+      value: -30.8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8e28fcaf9a0c5f34fa9166812f114290,
         type: 3}
