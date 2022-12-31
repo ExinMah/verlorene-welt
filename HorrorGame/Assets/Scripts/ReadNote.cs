@@ -27,9 +27,9 @@ public class ReadNote : MonoBehaviour
         isCollide = false;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) //&& noteUI.activeSelf
     {
-        if (other.gameObject.tag == "Collide")
+        if (other.gameObject.tag == "Collide" && !noteUI.activeSelf)
         {
             isCollide = true;
             pickUpText.SetActive(true);
@@ -48,7 +48,7 @@ public class ReadNote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Interact") && isCollide)
+        if (Input.GetButtonDown("Interact") && isCollide) //when note is not active
         {
             Debug.Log("Pressed F");
            // mouseLook.enabled = false;
@@ -68,11 +68,13 @@ public class ReadNote : MonoBehaviour
             //Cursor.visible = true;
             //Cursor.lockState = CursorLockMode.None;
         }
-        if (Input.GetButtonDown("NotInteract") && noteUI == true)
+        if (Input.GetButtonDown("NotInteract") && noteUI.activeSelf) //to check whether X is pressed & noteUI is true (active)
         {
+            Debug.Log("Note is active");
             //mouseLook.enabled = true;
 
             noteUI.SetActive(false);
+   
             Debug.Log("disable note");
             closeNoteText.SetActive(false);
             playPutDownSound();
@@ -91,6 +93,7 @@ public class ReadNote : MonoBehaviour
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = pickUpSound;
+        audio.volume = 1.0f;
         audio.Play();
     }
 
@@ -98,6 +101,7 @@ public class ReadNote : MonoBehaviour
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = putDownSound;
+        audio.volume = 0.3f;
         audio.Play();
     }
 }

@@ -7,7 +7,7 @@ public class LockControl : MonoBehaviour
     public AudioClip unlockSound;
     private int[] result, correctCombination;
     private bool isOpened;
-    private float shackleUnlock = 0.03f;
+    private float shackleUnlock = 0.04f;
     private void Start()
     {
         result = new int[] { 0, 0, 0, 0 };
