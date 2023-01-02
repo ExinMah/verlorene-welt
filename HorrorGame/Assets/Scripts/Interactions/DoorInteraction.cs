@@ -13,6 +13,7 @@ public class DoorInteraction : MonoBehaviour
     [SerializeField] private string lockedPromptText = "The door seems to be locked";
     
     private string boolText = "isDoorOpen";
+    private string triggerText = "openDoor";
     private string unlockedDoorTag = "UnlockedDoor";
     private string lockDoorTag = "LockedDoor";
     
@@ -42,12 +43,16 @@ public class DoorInteraction : MonoBehaviour
 
             if (!isDoorOpen)
             {
-                Door(doorOpenSound, true, true, currentDoor);
+                Debug.Log("Open Door");
+                Door(doorOpenSound, currentDoor);
+                currentDoor = null;
             }
-            else
+            /*else
             {
+                Debug.Log("Close Door");
                 Door(doorCloseSound, false, false, currentDoor);
-            }
+                currentDoor = null;
+            }*/
         }
     }
 
@@ -76,12 +81,11 @@ public class DoorInteraction : MonoBehaviour
         }
     }
 
-    public void Door(AudioClip audioClip, bool openCheck, bool doorIsOpen, GameObject thisDoor)
+    public void Door(AudioClip audioClip, GameObject thisDoor)
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.clip = audioClip;
         audio.Play();
-        isDoorOpen = openCheck;
-        thisDoor.GetComponent<Animator>().SetBool(boolText, doorIsOpen);
+        thisDoor.GetComponent<Animator>().SetTrigger(triggerText);
     }
 }

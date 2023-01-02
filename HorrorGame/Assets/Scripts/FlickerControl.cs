@@ -11,7 +11,7 @@ public class FlickerControl : MonoBehaviour
     public float lowerOnRange = 0.01f;
     public float upperOnRange = 0.5f;
     
-    void Update()
+    private void Update()
     {
         if (!isFlickering)
         {
@@ -19,7 +19,7 @@ public class FlickerControl : MonoBehaviour
         }
     }
 
-    IEnumerator FlickeringLight()
+    private IEnumerator FlickeringLight()
     {
         isFlickering = true;
         this.gameObject.GetComponent<Light>().enabled = false;

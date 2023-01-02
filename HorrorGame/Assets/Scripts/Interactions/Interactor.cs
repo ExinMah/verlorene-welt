@@ -48,7 +48,7 @@ public class Interactor : MonoBehaviour
                 currentTarget.layer = highlightedObjMask;
 
                 _doorInteraction.OpenDoor(hitInfo);
-                _doorInteraction.CloseDoor(hitInfo);
+                //_doorInteraction.CloseDoor(hitInfo);
             }
         }
         else if (currentTarget != null)

@@ -8,7 +8,9 @@ TagManager:
   - UnlockedDoor
   - PickupObjects
   - Collide
-  - InspectObjects
+  - Padlock
+  - Fire
+  - Wardrobe
   layers:
   - Default
   - TransparentFX

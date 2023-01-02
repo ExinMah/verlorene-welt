@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.01
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -216,11 +216,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1151157166098776263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e00a35a5a5a95542906e4f2a39b845a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f20ccd7c9060a5458276c17bcd8b02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isFlickering: 0
   timeDelay: 0
+  lowerOffRange: 0.01
+  upperOffRange: 0.5
+  lowerOnRange: 0.01
+  upperOnRange: 0.5
 --- !u!1 &1650336455513401178
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,12 +904,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5524510320192356793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229b15a826ddf6c4f9e7ffce4fce20fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b130dce885228249be564c409c91a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minimum: 0
   maximum: 100
-  current: -3
+  current: 1
   mask: {fileID: 2230092220303393683}
 --- !u!1 &6363852352745174771
 GameObject:

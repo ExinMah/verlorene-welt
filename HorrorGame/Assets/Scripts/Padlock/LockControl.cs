@@ -6,8 +6,9 @@ public class LockControl : MonoBehaviour
 {
     public AudioClip unlockSound;
     private int[] result, correctCombination;
-    private bool isOpened;
-    private float shackleUnlock = 0.03f;
+    public bool isOpened;
+    public float shackleUnlock = 0.04f;
+
     private void Start()
     {
         result = new int[] { 0, 0, 0, 0 };
@@ -47,6 +48,7 @@ public class LockControl : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y + shackleUnlock, transform.position.z);
             isOpened = true;
             Debug.Log("Opened!");
+
         }
     }
 

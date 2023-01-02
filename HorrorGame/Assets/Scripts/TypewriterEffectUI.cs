@@ -7,6 +7,9 @@ public class TypewriterEffectUI : MonoBehaviour
 {
     private TMP_Text _text;
     private string writer;
+    
+    [SerializeField] private AudioClip audioClip;
+    private AudioSource _audioSource;
 
     [SerializeField] private float delayBeforeStart = 0.0f;
     [SerializeField] private float timeBetweenChars = 0.1f;
@@ -25,6 +28,7 @@ public class TypewriterEffectUI : MonoBehaviour
 
             StartCoroutine(TypeWriter());
         }
+        
     }
 
     IEnumerator TypeWriter()
@@ -32,7 +36,8 @@ public class TypewriterEffectUI : MonoBehaviour
         _text.text = leadingCharBeforeDelay ? leadingChar : "";
 
         yield return new WaitForSeconds(delayBeforeStart);
-
+        
+        
         foreach (char c in writer)
         {
             if (_text.text.Length > 0)

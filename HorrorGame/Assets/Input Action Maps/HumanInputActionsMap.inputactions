@@ -35,7 +35,7 @@
                 {
                     "name": "Interact",
                     "type": "Button",
-                    "id": "e206c898-90be-4036-9f99-7935bd0ebd38",
+                    "id": "d2ca0599-f362-4674-8ff3-5eebbac52180",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -122,7 +122,7 @@
                 },
                 {
                     "name": "",
-                    "id": "fa4c9ecb-4564-4559-9331-e37c4dcb7673",
+                    "id": "c65d0376-6661-4d5c-823e-42a7b95fa159",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",

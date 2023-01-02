@@ -8,6 +8,6 @@ public class SceneLoader : MonoBehaviour
 {
     private void OnEnable()
     {
-        SceneManager.LoadScene("GameplayScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Single);
     }
 }

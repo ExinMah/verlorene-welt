@@ -24,6 +24,7 @@ public class InteractionPromptUI : MonoBehaviour
     {
         if (textOn)
         {
+            Debug.Log("Text is on");
             promptText.enabled = true;
             promptText.text = promptTextMessage;
         }
